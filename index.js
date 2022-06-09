@@ -67,10 +67,10 @@ const RootQuery = new graphql.GraphQLObjectType({
             args: {
                 label: { type: graphql.GraphQLString },
             },
-            resolve: (label) => {
+            resolve: (_, { label } ) => {
                 return {
                     count: fakeDatabase.length,
-                    label: "123",
+                    label: label,
                     allUsersList: fakeDatabase,
                 }
             }
