@@ -42,6 +42,7 @@ const RootQuery = new graphql.GraphQLObjectType({
     fields: {
         // return userType
         getUser: {
+            description: "get singhle user",
             type: userType,
             // `args` describes the arguments that the `user` query accepts
             args: {
@@ -53,6 +54,7 @@ const RootQuery = new graphql.GraphQLObjectType({
         },
         // return a list of userType (an array)
         getAllUsers: {
+            description: "get all users",
             type: new graphql.GraphQLList(userType),
             resolve: () => {
                 return fakeDatabase;
@@ -60,6 +62,7 @@ const RootQuery = new graphql.GraphQLObjectType({
         },
         // return object on allUserType
         getAllUsersList: {
+            description: "get all users",
             type: allUsersType,
             args: {
                 label: { type: graphql.GraphQLString },
